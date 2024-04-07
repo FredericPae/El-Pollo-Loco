@@ -1,0 +1,185 @@
+body {
+    margin: 0;
+    font-family: 'zabras', Tahoma, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('./img/5_background/desert.png') no-repeat;
+    background-position: center;
+}
+
+h1 {
+    color: #febb00;
+    font-size: 64px;
+    letter-spacing: 3px;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Sidemenu */
+
+#sideMenu {
+    z-index: -1;
+    height: 100%;
+    width: 150px;
+    background-color: rgba(255, 150, 1, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    align-items: center;
+    position: absolute;
+    left: 0px;
+}
+
+#sideMenu div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-size: 32px;
+    color: #ed030b;
+    text-shadow: 2px 2px #ffffff;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h2, h3 {
+    margin: 8px;
+}
+
+@keyframes slideFromRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideToRight {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.slideIn {
+    animation: slideFromRight 200ms ease-in-out forwards;
+}
+
+.slideOut {
+    animation: slideToRight 400ms ease-in-out forwards;
+}
+
+/* On Canvas */
+
+.hover:hover {
+    cursor: pointer;
+}
+
+#mainScreen {
+    width: 720px;
+    height: 480px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#startScreen {
+    display: flex;
+    justify-content: center;
+}
+
+#introBgScreen {
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes resize {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#startButton:not(:hover):not(:active) {
+    animation: resize 2s infinite;
+}
+
+#startButton {
+    position: absolute;
+    margin-top: 60px;
+    font-size: 48px;
+    color: #ed030b;
+    text-shadow: 2px 2px #ffffff;
+}
+
+#settings {
+    position: absolute;
+    top: 54px;
+    right: 62px;
+    display: flex;
+    justify-content: end;
+    gap: 12px;
+}
+
+#settings, img {
+    height: 30px;
+    width: 30px;
+}
+
+canvas {
+    background-color: black;
+    display: block;
+}
+
+.d-none {
+    display: none !important;
+}
+
+/* Smartphone */
+
+@media only screen and (max-width: 720px) {
+    body {
+        display: block;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    canvas {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-height: 630px) {
+    body {
+        display: block;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    canvas {
+        height: 100vh;
+    }
+}
